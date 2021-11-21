@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Personalised Cancer Diagnosis</title>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <link href='https://fonts.googleapis.com/css?family=Satisfy' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+</head>
+<body >
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-black">
+            <a class="navbar-brand" href="/">Personalised Cancer Diagnosis</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-11  col-md-6  mr-auto ml-auto left_box">
+                <form  method="GET" action="">
+                    {% csrf_token %}
+                    <input type="text" class="data_input "  name="gene" placeholder="Gene" >
+                    <input type="text" class="data_input"  name="variation" placeholder="Variation">
+                    <textarea type="text" class="data_input"  name="research" style="height:200px;" placeholder="Research Text" ></textarea>
+                    
+                    <button type="submit" class="btn search__btn"><span>Predict</span></button>
+                </form>
+            </div>
+            <div class="col-11 col-md-6 order-1 mr-auto ml-auto order-md-2 right_box">
+                <h3>Result</h3>
+
+                <form>
+                    {% csrf_token %}
+                    <input type="text" class="data_input2" placeholder="Class" disabled value={{class}}>
+                    <textarea type="text" class="data_input2" style="height:300px;" placeholder="Interpretation" disabled > {{interpretation}}</textarea>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
