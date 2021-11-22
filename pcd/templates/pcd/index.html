@@ -25,7 +25,7 @@
     <div class="container">
         <div class="row">
             <div class="col-11  col-md-6  mr-auto ml-auto left_box">
-                <form  method="GET" action="">
+                <form  method="POST">
                     {% csrf_token %}
                     <input type="text" class="data_input "  name="gene" placeholder="Gene" >
                     <input type="text" class="data_input"  name="variation" placeholder="Variation">
@@ -37,9 +37,9 @@
             <div class="col-11 col-md-6 order-1 mr-auto ml-auto order-md-2 right_box">
                 <h3>Result</h3>
 
-                <form>
+                <form method="GET">
                     {% csrf_token %}
-                    <input type="text" class="data_input2" placeholder="Class" disabled value={{class}}>
+                    <textarea type="text" class="data_input2" placeholder="Class" disabled>{{class}}</textarea>
                     <textarea type="text" class="data_input2" style="height:300px;" placeholder="Interpretation" disabled > {{interpretation}}</textarea>
                 </form>
 
