@@ -37,12 +37,15 @@
             <div class="col-11 col-md-6 order-1 mr-auto ml-auto order-md-2 right_box">
                 <h3>Result</h3>
 
-                <form method="GET">
-                    {% csrf_token %}
-                    <textarea type="text" class="data_input2" placeholder="Class" disabled>{{class}}</textarea>
-                    <textarea type="text" class="data_input2" style="height:300px;" placeholder="Interpretation" disabled > {{interpretation}}</textarea>
+                <form >
+                    {% for array in class %}
+                    {% for value in array %}
+                    <textarea type="text" class="data_input2" placeholder="Class" disabled>Probability for Class {{forloop.counter}}:  {{value}}</textarea>
+                    {% endfor %}
+                    {% endfor %}
+                    
+                  
                 </form>
-
             </div>
         </div>
     </div>

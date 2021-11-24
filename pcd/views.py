@@ -11,7 +11,8 @@ GENE_FILE = 'geneFeatures.sav'
 TEXT_FILE = 'textFeatures.sav'
 MODEL_FILE = 'finalized_model.sav'
 VARIATION_FILE = 'variationFeatures.sav'
-BASE_FILES_PATH = '/home/jm1shra/PersonalizedCancerDiagnosis/Personalised-Cancer-Diagnosis/mysite/'
+BASE_FILES_PATH = 'C:/Users/raghuraj/Desktop/btp/mysite/'
+
 
 def loadVariationFeatures():
     print('loadVariationWasCalled')
@@ -119,3 +120,8 @@ def home(request):
         return render(request, 'pcd/index.html', {"class": logistic_model.predict_proba(np.array(norm).reshape(1,-1)) ,"interpretation":variation})
         
     return render(request, 'pcd/index.html', {"class":'',"interpretation":''})
+
+
+def test(request):
+    tmp = [[0.16156911, 0.16430113, 0.04216091, 0.19822149, 0.08800034 ,0.11081718, 0.20477261 ,0.00769529 ,0.02246194]]
+    return render(request, 'pcd/index.html', {"class":tmp})
