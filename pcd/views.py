@@ -3,7 +3,11 @@ import json
 import pickle
 import re
 import numpy as np
+import os
 
+
+# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 
@@ -11,7 +15,7 @@ GENE_FILE = 'geneFeatures.sav'
 TEXT_FILE = 'textFeatures.sav'
 MODEL_FILE = 'finalized_model.sav'
 VARIATION_FILE = 'variationFeatures.sav'
-BASE_FILES_PATH = 'C:/Users/raghuraj/Desktop/btp/mysite/'
+BASE_FILES_PATH = BASE_DIR+'/mysite/'
 
 
 def loadVariationFeatures():
